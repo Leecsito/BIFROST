@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Predicción IA - Bifrost</title>
+    <link rel="stylesheet" href="predict.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="top-decoration"></div>
+
+    <div class="container slide-in-up">
+
+        <header class="header">
+            <div class="header-icon">
+                <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="header-text">
+                <h1>Predicción IA</h1>
+                <p id="targetMonthLabel">Cargando contexto...</p>
+            </div>
+        </header>
+
+        <div class="card status-card delay-1">
+            <div class="status-indicator" id="statusIndicator">
+                <div class="indicator-dot"></div>
+                <span>Sistema Listo</span>
+            </div>
+        </div>
+
+        <div class="action-area delay-2" id="actionArea">
+            <div class="hero-card">
+                <div class="hero-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>Motor de Inferencia</h3>
+                <p class="subtitle" id="dataRangeLabel">--</p>
+
+                <button class="btn-primary" id="btnPredict">
+                    <i class="fas fa-play"></i>
+                    <span id="btnPredictText">INICIAR PREDICCIÓN</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="simulation-card" id="simulationCard">
+            <div class="simulation-header">
+                <i class="fas fa-microchip fa-spin-pulse" id="simIcon"></i>
+                <h3 id="simTitle">Simulando...</h3>
+            </div>
+
+            <div class="progress-section">
+                <div class="progress-info">
+                    <span class="progress-label" id="progressLabel">Inicializando</span>
+                    <span class="progress-percent" id="progressPercent">0%</span>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-icon blue"><i class="fas fa-database"></i></div>
+                    <div class="stat-content">
+                        <span class="stat-label">Analizados</span>
+                        <span class="stat-value" id="recordsAnalyzed">0</span>
+                    </div>
+                </div>
+
+                <div class="stat-item">
+                    <div class="stat-icon purple"><i class="fas fa-bolt"></i></div>
+                    <div class="stat-content">
+                        <span class="stat-label">Generados</span>
+                        <span class="stat-value" id="transactionsGenerated">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="algorithm-info">
+                <i class="fas fa-terminal"></i>
+                <span id="algorithmStatus">Esperando comando...</span>
+            </div>
+        </div>
+
+        <div class="results-card" id="resultsCard">
+            <div class="card-header">
+                <div class="icon-circle">
+                    <i class="fas fa-check"></i>
+                </div>
+                <h3 id="resultsTitle">Proyección Finalizada</h3>
+            </div>
+
+            <div class="warning-box" id="comparisonStatusBox">
+                <i class="fas fa-info-circle"></i>
+                <span id="comparisonStatusText">Esperando datos reales...</span>
+            </div>
+
+            <div class="comparison-table">
+                <div class="table-header">
+                    <div>Métrica</div>
+                    <div>IA</div>
+                    <div>Real</div>
+                    <div>Prec.</div>
+                </div>
+                <div id="tableBody"></div>
+            </div>
+
+            <div class="score-card">
+                <span class="score-title">Score de Precisión</span>
+                <span class="score-value" id="finalScore">--</span>
+            </div>
+        </div>
+
+        <button class="btn-secondary delay-3" id="btnReset">
+            <i class="fas fa-arrow-rotate-left"></i>
+            <span>Reiniciar Sistema</span>
+        </button>
+
+    </div>
+
+    <script src="../backend/conexion.js"></script>
+    <script src="predict.js"></script>
+</body>
+
+</html>

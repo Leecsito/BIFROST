@@ -1,0 +1,353 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg-app: #F5F7FA;
+    --text-dark: #1F2937;
+    --text-gray: #9CA3AF;
+    --white: #FFFFFF;
+    --primary: #4F46E5;
+    /* Indigo moderno */
+    --accent-blue: #3B82F6;
+    --accent-purple: #8B5CF6;
+    --danger: #EF4444;
+    --success: #10B981;
+    --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: var(--bg-app);
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-dark);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Decoración superior sutil */
+.top-decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(180deg, #E0E7FF 0%, rgba(245, 247, 250, 0) 100%);
+    z-index: -1;
+}
+
+/* EL FIX IMPORTANTE PARA EL MENÚ */
+.container {
+    padding: 20px 20px 120px 20px;
+    /* 120px abajo para el menú Android */
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-top: 10px;
+}
+
+.greeting {
+    font-size: 14px;
+    color: var(--text-gray);
+    font-weight: 500;
+}
+
+.username {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.btn-icon {
+    background: var(--white);
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    color: var(--text-dark);
+    font-size: 18px;
+    position: relative;
+    cursor: pointer;
+}
+
+.notification-dot {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 8px;
+    height: 8px;
+    background-color: var(--danger);
+    border-radius: 50%;
+    border: 2px solid var(--white);
+}
+
+/* System Status Banner */
+.system-status-card {
+    background: var(--primary);
+    color: var(--white);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.status-icon {
+    background: rgba(255, 255, 255, 0.2);
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.status-text h3 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.status-text p {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.pulse-indicator {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 10px;
+    height: 10px;
+    background-color: #34D399;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(52, 211, 153, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(52, 211, 153, 0);
+    }
+}
+
+/* Section Title */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.section-header h3 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.date-badge {
+    font-size: 11px;
+    background: #E5E7EB;
+    padding: 4px 10px;
+    border-radius: 20px;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+/* Grid Layout */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Dos columnas */
+    gap: 15px;
+}
+
+.card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 18px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.2s;
+}
+
+.card:active {
+    transform: scale(0.98);
+}
+
+.full-width {
+    grid-column: span 2;
+    /* Ocupa todo el ancho */
+}
+
+/* Estilos Específicos de Tarjetas */
+.stat-card .card-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    color: var(--white);
+}
+
+.blue {
+    background: var(--accent-blue);
+}
+
+.purple {
+    background: var(--accent-purple);
+}
+
+.red {
+    background: var(--danger);
+}
+
+.card-data .label {
+    font-size: 12px;
+    color: var(--text-gray);
+    display: block;
+    margin-bottom: 4px;
+}
+
+.card-data h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.trend {
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.trend.positive {
+    color: var(--success);
+}
+
+/* Fraud Card Special Styling */
+.fraud-card {
+    background: var(--white);
+    border: 1px solid rgba(239, 68, 68, 0.1);
+}
+
+.fraud-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--text-gray);
+    margin-bottom: 10px;
+}
+
+.fraud-body h2 {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.fraud-body p {
+    font-size: 12px;
+    color: var(--text-gray);
+    margin-bottom: 12px;
+}
+
+.progress-bar-bg {
+    width: 100%;
+    height: 6px;
+    background: #F3F4F6;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: var(--danger);
+    width: 0%;
+    /* Se llena con JS */
+    transition: width 1s ease;
+}
+
+/* Full Width Rows */
+.row-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.icon-box {
+    width: 45px;
+    height: 45px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    flex-shrink: 0;
+}
+
+.text-content {
+    flex: 1;
+}
+
+.text-content h2 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.trend-box {
+    background: rgba(16, 185, 129, 0.1);
+    padding: 5px 10px;
+    border-radius: 8px;
+    color: var(--success);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.risk-badge {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--danger);
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* Animación de entrada */
+.slide-in {
+    animation: slideUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

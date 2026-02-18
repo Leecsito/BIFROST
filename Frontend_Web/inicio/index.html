@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Dashboard - Bifrost</title>
+    <link rel="stylesheet" href="inicio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="top-decoration"></div>
+
+    <div class="container slide-in">
+
+        <header class="header">
+            <div class="user-info">
+                <p class="greeting">Bienvenido de nuevo,</p>
+                <h1 class="username">Administrador</h1>
+            </div>
+            <div class="header-actions">
+                <button class="btn-icon">
+                    <i class="far fa-bell"></i>
+                    <span class="notification-dot"></span>
+                </button>
+            </div>
+        </header>
+
+        <div class="system-status-card">
+            <div class="status-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <div class="status-text">
+                <h3>Sistema Activo</h3>
+                <p>Monitoreando transacciones</p>
+            </div>
+            <div class="pulse-indicator"></div>
+        </div>
+
+        <div class="section-header">
+            <h3>Resumen de Hoy</h3>
+            <span class="date-badge">En tiempo real</span>
+        </div>
+
+        <div class="dashboard-grid">
+
+            <div class="card stat-card">
+                <div class="card-icon blue">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <div class="card-data">
+                    <span class="label">Simulaciones</span>
+                    <h2 id="simCount">--</h2>
+                    <p class="trend positive">
+                        <i class="fas fa-chart-line"></i> <span id="simTrend">--%</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="card fraud-card">
+                <div class="fraud-header">
+                    <span>Riesgo Actual</span>
+                    <i class="fas fa-exclamation-circle"></i>
+                </div>
+                <div class="fraud-body">
+                    <h2 id="fraudRate">--%</h2>
+                    <p id="fraudStatusLevel">Calculando...</p>
+
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" id="gaugeFill"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card full-width">
+                <div class="row-content">
+                    <div class="icon-box purple">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <div class="text-content">
+                        <span class="label">Volumen Procesado</span>
+                        <h2 id="totalTrans">--</h2>
+                    </div>
+                    <div class="trend-box" id="transTrendBox">
+                        <span id="transTrend">--%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card full-width warning-border">
+                <div class="row-content">
+                    <div class="icon-box red">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="text-content">
+                        <span class="label">Alertas de IA</span>
+                        <h2><span id="suspiciousCount">--</span> casos</h2>
+                    </div>
+                    <div class="risk-badge">
+                        <span id="moneyRisk">$--</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="../backend/conexion.js"></script>
+    <script src="inicio.js"></script>
+</body>
+
+</html>

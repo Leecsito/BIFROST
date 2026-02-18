@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Dashboard Analítico - Bifrost</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="top-decoration"></div>
+
+    <div class="container slide-in-up">
+
+        <header class="header">
+            <button class="btn-back" onclick="window.location.href='../inicio/index.html'">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <div class="header-text">
+                <h1>Dashboard Global</h1>
+                <p>Análisis profundo de datos</p>
+            </div>
+            <div class="filter-box">
+                <select id="timeFilter">
+                    <option value="30">Últimos 30 días</option>
+                    <option value="90">Últimos 3 meses</option>
+                    <option value="365">Último año</option>
+                    <option value="all">Todo el historial</option>
+                </select>
+            </div>
+        </header>
+
+        <div class="chart-card slide-in-up delay-1">
+            <div class="card-header">
+                <h3>Tendencia de Fraude</h3>
+                <span class="badge red">Riesgo</span>
+            </div>
+            <div class="risk-background">
+                <div class="risk-zone high"></div>
+                <div class="risk-zone mid"></div>
+                <div class="risk-zone low"></div>
+                <div class="chart-wrapper">
+                    <svg id="fraudLineChart" viewBox="0 0 300 150" preserveAspectRatio="none"></svg>
+                </div>
+            </div>
+            <div class="chart-labels" id="fraudLabels">
+                <span>Inicio Periodo</span>
+                <span>Actualidad</span>
+            </div>
+        </div>
+
+        <div class="chart-card slide-in-up delay-2">
+            <div class="card-header">
+                <h3>Volumen Transaccional</h3>
+                <span class="badge blue">Monto Total</span>
+            </div>
+            <div class="bar-chart-container" id="amountBarChart">
+                <div class="loading-chart">Cargando...</div>
+            </div>
+        </div>
+
+        <div class="grid-row slide-in-up delay-2">
+            <div class="mini-chart-card">
+                <h4>Tipo Transacción</h4>
+                <div class="pie-container">
+                    <div class="pie-chart" id="typePieChart"></div>
+                    <div class="pie-legend" id="typeLegend"></div>
+                </div>
+            </div>
+            <div class="mini-chart-card">
+                <h4>Fraude vs Legit</h4>
+                <div class="pie-container">
+                    <div class="pie-chart" id="fraudPieChart"></div>
+                    <div class="pie-legend" id="fraudLegend"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chart-card slide-in-up delay-3">
+            <div class="tab-header">
+                <button class="tab-btn active" data-target="topCats">Top Categorías</button>
+                <button class="tab-btn" data-target="topMerch">Top Comercios</button>
+            </div>
+            <div id="topCats" class="tab-content active">
+                <div class="horizontal-bars" id="catsList"></div>
+            </div>
+            <div id="topMerch" class="tab-content">
+                <div class="horizontal-bars" id="merchList"></div>
+            </div>
+        </div>
+
+        <div class="chart-card slide-in-up delay-3">
+            <div class="card-header">
+                <h3>Transacciones Fallidas</h3>
+                <span class="badge orange">Atención</span>
+            </div>
+            <div class="bar-chart-container" id="failedBarChart"></div>
+        </div>
+
+        <div class="chart-card slide-in-up delay-4">
+            <div class="card-header">
+                <h3>Distribución por Edad</h3>
+                <span class="badge purple">Demografía</span>
+            </div>
+            <div class="bar-chart-container dense" id="ageHistogram"></div>
+        </div>
+
+    </div>
+
+    <script src="../backend/conexion.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+
+</html>

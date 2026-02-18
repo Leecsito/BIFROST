@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Cargar Reportes - Bifrost</title>
+    <link rel="stylesheet" href="upload.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header slide-in-up">
+            <div class="header-icon">
+                <i class="fas fa-cloud-upload-alt"></i>
+            </div>
+            <div class="header-text">
+                <h1>Centro de Carga</h1>
+                <p>Ingesta de Reportes Mensuales</p>
+            </div>
+        </header>
+
+        <div class="card upload-card slide-in-up delay-1" id="uploadCard">
+            <div class="upload-zone" id="dropZone">
+                <input type="file" id="fileInput" accept=".csv" hidden>
+                <div class="upload-content">
+                    <div class="icon-circle">
+                        <i class="fas fa-file-csv"></i>
+                    </div>
+                    <h3>Sube tu CSV aquí</h3>
+                    <p>Arrastra o selecciona el reporte mensual</p>
+                    <button class="btn-select" id="btnSelect">
+                        Seleccionar Archivo
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="preview-container" id="previewContainer" style="display: none;">
+            <div class="card slide-in-up">
+                <div class="preview-header">
+                    <div class="ph-text">
+                        <h3 id="previewTitle">Analizando...</h3>
+                        <span class="ph-badge" id="previewBadge">Nuevo</span>
+                    </div>
+                    <button class="btn-close-preview" id="btnClosePreview">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+
+                <div class="duplicate-alert" id="duplicateAlert" style="display: none;">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div class="alert-content">
+                        <strong>¡Atención!</strong>
+                        <p>Ya existen datos para este mes. Se reemplazarán los registros anteriores.</p>
+                    </div>
+                </div>
+
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-icon blue"><i class="fas fa-receipt"></i></div>
+                        <div class="kpi-content">
+                            <span class="kpi-label">Transacciones</span>
+                            <span class="kpi-value" id="prevTx">--</span>
+                        </div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon purple"><i class="fas fa-dollar-sign"></i></div>
+                        <div class="kpi-content">
+                            <span class="kpi-label">Monto Total</span>
+                            <span class="kpi-value" id="prevAmount">--</span>
+                        </div>
+                    </div>
+                    <div class="kpi-card full-width">
+                        <div class="kpi-icon red"><i class="fas fa-shield-alt"></i></div>
+                        <div class="kpi-content">
+                            <span class="kpi-label">Posibles Fraudes</span>
+                            <span class="kpi-value" id="prevFraud">--</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-area slide-in-up delay-1">
+                <button class="btn-primary" id="btnUpload">
+                    <i class="fas fa-rocket"></i>
+                    <span id="btnUploadText">CONFIRMAR Y SUBIR</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="process-card" id="processCard" style="display: none;">
+            <div class="process-header">
+                <div class="spinner"></div>
+                <h3>Procesando Datos...</h3>
+            </div>
+
+            <div class="steps-container">
+                <div class="step-item pending" id="stepDelete" style="display:none">
+                    <div class="step-icon"><i class="fas fa-trash-alt"></i></div>
+                    <div class="step-text"><span>Limpieza</span><small>Eliminando datos anteriores</small></div>
+                    <i class="fas fa-check step-check"></i>
+                </div>
+
+                <div class="step-item pending" id="step1">
+                    <div class="step-icon"><i class="fas fa-database"></i></div>
+                    <div class="step-text"><span>Ingesta</span><small>Carga a Dataset Original</small></div>
+                    <i class="fas fa-check step-check"></i>
+                </div>
+
+                <div class="step-item pending" id="step2">
+                    <div class="step-icon"><i class="fas fa-filter"></i></div>
+                    <div class="step-text"><span>ETL</span><small>Limpieza y Normalización</small></div>
+                    <i class="fas fa-check step-check"></i>
+                </div>
+
+                <div class="step-item pending" id="step3">
+                    <div class="step-icon"><i class="fas fa-brain"></i></div>
+                    <div class="step-text"><span>IA Ready</span><small>Transformación final</small></div>
+                    <i class="fas fa-check step-check"></i>
+                </div>
+            </div>
+
+            <div class="progress-section">
+                <div class="progress-track">
+                    <div class="progress-fill" id="globalProgress"></div>
+                </div>
+                <p class="progress-status" id="statusText">Iniciando...</p>
+            </div>
+        </div>
+
+        <a href="../predict/index.html" class="btn-secondary slide-in-up delay-3" id="btnBack">
+            <i class="fas fa-arrow-left"></i>
+            <span>Ir a Predicciones</span>
+        </a>
+
+    </div>
+
+    <div class="bottom-spacer"></div>
+
+    <script src="../backend/conexion.js"></script>
+    <script src="../backend/procesoETL.js"></script>
+    <script src="upload.js"></script>
+</body>
+
+</html>

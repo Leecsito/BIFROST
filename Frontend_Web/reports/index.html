@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mis Reportes - Bifrost</title>
+    <link rel="stylesheet" href="reports.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="top-decoration"></div>
+
+    <div class="container slide-in-up">
+
+        <header class="header">
+            <div class="header-icon">
+                <i class="fas fa-folder-open"></i>
+            </div>
+            <div class="header-text">
+                <h1>Mis Reportes</h1>
+                <p>Historial y Rendimiento IA</p>
+            </div>
+        </header>
+
+        <div class="search-container delay-1">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Buscar mes o año (ej: Enero 2023)...">
+            </div>
+        </div>
+
+        <div class="card chart-card delay-1">
+            <div class="chart-header">
+                <h3>Precisión de la IA</h3>
+                <span class="chart-badge">Tendencia</span>
+            </div>
+            <div class="bar-chart-container" id="accuracyChart">
+                <div class="empty-chart">
+                    <i class="fas fa-chart-bar"></i>
+                    <p>Calculando efectividad...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-row delay-2">
+            <div class="mini-card">
+                <span class="mini-label">Total Cargados</span>
+                <span class="mini-value" id="totalReports">0</span>
+            </div>
+            <div class="mini-card">
+                <span class="mini-label">Efectividad Media</span>
+                <span class="mini-value success" id="avgAccuracy">--</span>
+            </div>
+        </div>
+
+        <div class="reports-list" id="reportsList">
+            <div class="loading-state">
+                <div class="spinner"></div>
+                <p>Sincronizando...</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="../backend/conexion.js"></script>
+    <script src="reports.js"></script>
+</body>
+
+</html>
